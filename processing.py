@@ -1,17 +1,21 @@
-list_of_flairs_to_check = ['[Patron]', '[HIRING]', 'Hiring', "[HIRING]-one-off", "[HIRING]-project", "Artist Needed", 'Paid', "Paid Request", ]
+from communities_and_meta import subs_and_meta_info
 
-list_to_parse_title = ['[HIRING]', '[Hiring]', '[hirng]',]
+# list_of_flairs_to_check = ['[Patron]', '[HIRING]', 'Hiring', "[HIRING]-one-off", "[HIRING]-project", "Artist Needed", 'Paid', "Paid Request", ]
 
-list_to_process_submission = list_of_flairs_to_check + list_to_parse_title
+# list_to_parse_title = ['[HIRING]', '[Hiring]', '[hirng]',]
 
-notify = []
+# list_to_process_submission = list_of_flairs_to_check + list_to_parse_title
 
 
-def processing(submission):
-    for checker in list_to_process_submission:
-        if submission.link_flair_text:
-            if checker.lower() in submission.title.lower() or checker.lower() == submission.link_flair_text.lower():
+def processing(submission, sub):
+
+    if submission.link_flair_text:
+        for condition in subs_and_meta_info[sub]['flair']:
+            if condition == submission.link_flair_text:
                 return submission
-        else: 
-            if checker.lower() in submission.title.lower():
-                return submission
+
+    for cond in subs_and_meta_info[sub]['title']:
+        if cond in submission.title: 
+            return submission
+
+
