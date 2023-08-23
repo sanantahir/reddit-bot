@@ -1,0 +1,15 @@
+cachetools==5.3.1
+certifi==2023.7.22
+charset-normalizer==3.2.0
+cssselect==1.2.0
+cssutils==2.7.1
+idna==3.4
+lxml==4.9.3
+praw==7.7.1
+prawcore==2.3.0
+premailer==3.10.0
+requests==2.31.0
+update-checker==0.18.0
+urllib3==2.0.4
+websocket-client==1.6.1
+yagmail==0.15.293
